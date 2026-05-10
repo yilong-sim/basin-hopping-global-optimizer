@@ -174,6 +174,8 @@ The optimizer was used to systematically explore the assembly phase diagram of b
 
 The A3B5- and A4B6-type bilayer superlattices predicted by this optimizer had never previously been reported in the literature.
 
+See [Zhou & Arya, Nature Communications 2022](https://doi.org/10.1038/s41467-022-35690-8) for the full phase diagram, structural results, and experimental validation.
+
 ---
 
 ## Citation
