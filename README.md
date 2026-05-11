@@ -51,6 +51,10 @@ Every 2000 steps: reset to current global best structure
 Repeat until convergence
 ```
 
+![Algorithm flowchart](media/fig1b_algorithm.png)
+
+*Algorithm architecture. Six custom MC moves (right) were designed from scratch for quasi-2D geometries — standard 3D displacement moves are inefficient for this problem class. The outer loop structure (perturb → locally minimize → accept/reject) mirrors the architecture of sampling-based planners with trajectory optimization: each "basin" is analogous to a local trajectory optimum, and the MC moves are the mechanism for escaping it.*
+
 ---
 
 ## Six Custom MC Moves
@@ -69,6 +73,10 @@ Standard BHMC displacement moves are designed for 3D bulk systems and are ineffi
 **Move sequence:** `P → S → T → D → I → S → R → D → R`
 
 Each move executes until consecutively rejected by the Metropolis criterion, then advances to the next move in the sequence. If the optimizer stagnates in the same structure for more than 5 consecutive acceptances (detected via USR), the sequence also advances.
+
+![Convergence trajectory](media/fig1c_convergence.png)
+
+*Convergence on a representative 12-particle binary system (φ = 1, ε = 0.08, χ = 0.6, ω = 1), yielding a square-packed bilayer as the global minimum. The staircase descent — large initial drop followed by incremental refinement — is characteristic of basin-hopping: each step represents a newly accepted local minimum, with the optimizer progressively correcting defects until reaching the globally stable configuration in 33 MC steps.*
 
 ---
 
@@ -173,6 +181,10 @@ The optimizer was used to systematically explore the assembly phase diagram of b
 - Multiple predicted structures subsequently **validated against experiment**
 
 The A3B5- and A4B6-type bilayer superlattices predicted by this optimizer had never previously been reported in the literature.
+
+![Phase diagram](media/fig2a_phase_diagram.png)
+
+*Phase diagram for equal-sized NPs (φ = 1, ω = 1) across ~80 parameter combinations — each cell is the global minimum found by the optimizer. The three structural regimes (monolayer, bilayer, globular) emerge purely from the competition between interfacial and interparticle interactions, with no human-guided search. Mapping this landscape required running the optimizer to convergence across the full parameter grid — demonstrating the kind of systematic, automated exploration that is impractical with MD simulation alone.*
 
 See [Zhou & Arya, Nature Communications 2022](https://doi.org/10.1038/s41467-022-35690-8) for the full phase diagram, structural results, and experimental validation.
 
