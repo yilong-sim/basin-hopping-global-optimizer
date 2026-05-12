@@ -68,7 +68,7 @@ Standard BHMC displacement moves are designed for 3D bulk systems and are ineffi
 | **Twist (T)** | Separates NPs into above/below interface groups; randomly rotates one group about the interface normal through the cluster centroid |
 | **Interfacial (I)** | Directly displaces the NP farthest from the interface toward it — addresses the slow diffusive timescale for NPs to reach the interface |
 | **Switch (S)** | Targets pairs of opposite-species NPs that have intruded into their disfavored fluid layer and swaps their species identity |
-| **NNeighbor (R)** | Rotates the least-coordinated NP (or farthest from centroid) on a circle parallel to the interface — designed for filling vacant sites in planar structures |
+| **Rotation (R)** | Rotates the least-coordinated NP (or farthest from centroid) on a circle parallel to the interface — designed for filling vacant sites in planar structures |
 
 **Move sequence:** `P → S → T → D → I → S → R → D → R`
 
